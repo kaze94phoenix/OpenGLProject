@@ -49,10 +49,11 @@ public class OpenGLProject {
          glLoadIdentity();
          cam.useView();
          
+         //--Cube 2--//
          glPushMatrix();
             
             glTranslatef(0,0,-10);
-            glRotatef(x,1,0,1);
+            glRotatef(x,1,1,1);
             glBegin(GL_QUADS);
             
             //Face 1
@@ -99,6 +100,60 @@ public class OpenGLProject {
             
             glEnd();
             glPopMatrix();
+            //--End of Cube 2--//
+            
+            //--Cube 1--///
+            glPushMatrix();
+            
+            glTranslatef(0,5,-10);
+            glRotatef(x,1,1,1);
+            glBegin(GL_QUADS);
+            
+            //Face 1
+            glColor3f(0.3f, 0.75f, 1.5f);
+            glVertex3f(-1, -1,1);
+            glVertex3f(-1, 1,1);
+            glVertex3f(1, 1,1);
+            glVertex3f(1, -1,1);
+            
+            //Face 2
+            glColor3f(0.3f, 0.55f, 1.5f);
+            glVertex3f(-1, -1,-1);
+            glVertex3f(-1, 1,-1);
+            glVertex3f(1, 1,-1);
+            glVertex3f(1, -1,-1);
+            
+            //Face 3
+            glColor3f(0.7f, 0.75f, 1.5f);
+            glVertex3f(-1, -1,-1);
+            glVertex3f(-1, -1,1);
+            glVertex3f(-1, 1,1);
+            glVertex3f(-1, 1,-1);
+            
+            //Face 4
+            glColor3f(0.3f, 0.75f, 1.5f);
+            glVertex3f(1, -1,-1);
+            glVertex3f(1, -1,1);
+            glVertex3f(1, 1,1);
+            glVertex3f(1, 1,-1);
+            
+            //Face 5
+            glColor3f(0.56f, 0.75f, 1.5f);
+            glVertex3f(-1, -1,-1);
+            glVertex3f(1, -1,-1);
+            glVertex3f(1, -1,1);
+            glVertex3f(-1, -1,1);
+            
+            //Face 6
+            glColor3f(0.3f, 1.75f, 1.5f);
+            glVertex3f(-1, 1,-1);
+            glVertex3f(1, 1,-1);
+            glVertex3f(1, 1,1);
+            glVertex3f(-1, 1,1);
+            
+            glEnd();
+            glPopMatrix();
+            //--Enc of Cube 1--//
             x+=0.1f;
             Display.update();
             
@@ -107,14 +162,7 @@ public class OpenGLProject {
         }
     }
     
-//    public static void createGL(){
-//        glMatrixMode(GL_PROJECTION);
-//        glLoadIdentity();
-//        glOrtho(0, Display.getWidth(), 0, Display.getHeight(),-1, 1);
-//        glMatrixMode(GL_MODELVIEW);
-//        glClearColor(0, 0, 0,1);
-//        glDisable(GL_DEPTH_TEST);
-//    }
+
     
     public static void cleanUP(){
         Display.destroy();
