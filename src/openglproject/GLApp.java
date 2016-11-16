@@ -39,7 +39,7 @@ public class GLApp extends javax.swing.JFrame {
 
         gerarCuboBt = new javax.swing.JButton();
         jColorChooser1 = new javax.swing.JColorChooser();
-        jButton2 = new javax.swing.JButton();
+        gerarParCubosBt = new javax.swing.JButton();
         aplicarCor1Bt = new javax.swing.JButton();
         aplicarCor2Bt = new javax.swing.JButton();
         aplicarCor3Bt = new javax.swing.JButton();
@@ -52,6 +52,8 @@ public class GLApp extends javax.swing.JFrame {
         face4 = new javax.swing.JCheckBox();
         face5 = new javax.swing.JCheckBox();
         face6 = new javax.swing.JCheckBox();
+        gerarColisaoCubosBt = new javax.swing.JButton();
+        gerarEixosBt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,10 +64,10 @@ public class GLApp extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Gerar Par de Cubos");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        gerarParCubosBt.setText("Gerar Par de Cubos");
+        gerarParCubosBt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                gerarParCubosBtActionPerformed(evt);
             }
         });
 
@@ -128,6 +130,20 @@ public class GLApp extends javax.swing.JFrame {
 
         face6.setText("Face 6");
 
+        gerarColisaoCubosBt.setText("Gerar Colisao de Cubos");
+        gerarColisaoCubosBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerarColisaoCubosBtActionPerformed(evt);
+            }
+        });
+
+        gerarEixosBt.setText("Gerar Eixos");
+        gerarEixosBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerarEixosBtActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -136,24 +152,28 @@ public class GLApp extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(gerarCuboBt)
-                    .addComponent(face1)
-                    .addComponent(face2)
-                    .addComponent(face3)
-                    .addComponent(face4)
-                    .addComponent(face5)
-                    .addComponent(face6))
-                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(aplicarCor2Bt)
-                        .addComponent(aplicarCor3Bt)
-                        .addComponent(aplicarCor4Bt)
-                        .addComponent(aplicarCor5Bt)
-                        .addComponent(aplicarCor6Bt)
-                        .addComponent(aplicarCor1Bt))
-                    .addComponent(jButton2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(gerarCuboBt)
+                            .addComponent(face1)
+                            .addComponent(face2)
+                            .addComponent(face3)
+                            .addComponent(face4)
+                            .addComponent(face5)
+                            .addComponent(face6))
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(aplicarCor2Bt)
+                                .addComponent(aplicarCor3Bt)
+                                .addComponent(aplicarCor4Bt)
+                                .addComponent(aplicarCor5Bt)
+                                .addComponent(aplicarCor6Bt)
+                                .addComponent(aplicarCor1Bt))
+                            .addComponent(gerarParCubosBt)))
+                    .addComponent(gerarColisaoCubosBt)
+                    .addComponent(gerarEixosBt))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -189,9 +209,13 @@ public class GLApp extends javax.swing.JFrame {
                             .addComponent(aplicarCor6Bt)
                             .addComponent(face6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(gerarEixosBt)
+                        .addGap(18, 18, 18)
+                        .addComponent(gerarColisaoCubosBt)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(gerarCuboBt)
-                            .addComponent(jButton2))))
+                            .addComponent(gerarParCubosBt))))
                 .addGap(40, 40, 40))
         );
 
@@ -207,7 +231,7 @@ public class GLApp extends javax.swing.JFrame {
         boolean f5 = face5.isSelected();
         boolean f6 = face6.isSelected();
 
-        new ShowCube(f1, f2, f3, f4, f5, f6, cf1, cf2, cf3, cf4, cf5, cf6,1);
+        new ShowCube(f1, f2, f3, f4, f5, f6, cf1, cf2, cf3, cf4, cf5, cf6).executeOneCube();
     }//GEN-LAST:event_gerarCuboBtActionPerformed
 
     private void aplicarCor1BtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aplicarCor1BtActionPerformed
@@ -287,7 +311,7 @@ public class GLApp extends javax.swing.JFrame {
         aplicarCor6Bt.setForeground(c);
     }//GEN-LAST:event_aplicarCor6BtActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void gerarParCubosBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerarParCubosBtActionPerformed
         // TODO add your handling code here:
         boolean f1 = face1.isSelected();
         boolean f2 = face2.isSelected();
@@ -295,8 +319,30 @@ public class GLApp extends javax.swing.JFrame {
         boolean f4 = face4.isSelected();
         boolean f5 = face5.isSelected();
         boolean f6 = face6.isSelected();
-        new ShowCube(f1, f2, f3, f4, f5, f6, cf1, cf2, cf3, cf4, cf5, cf6,2);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        new ShowCube(f1, f2, f3, f4, f5, f6, cf1, cf2, cf3, cf4, cf5, cf6).executeTwoCubes();
+    }//GEN-LAST:event_gerarParCubosBtActionPerformed
+
+    private void gerarColisaoCubosBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerarColisaoCubosBtActionPerformed
+        // TODO add your handling code here:
+        boolean f1 = face1.isSelected();
+        boolean f2 = face2.isSelected();
+        boolean f3 = face3.isSelected();
+        boolean f4 = face4.isSelected();
+        boolean f5 = face5.isSelected();
+        boolean f6 = face6.isSelected();
+        new ShowCube(f1, f2, f3, f4, f5, f6, cf1, cf2, cf3, cf4, cf5, cf6).executeCubesColision();
+    }//GEN-LAST:event_gerarColisaoCubosBtActionPerformed
+
+    private void gerarEixosBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerarEixosBtActionPerformed
+        // TODO add your handling code here
+        boolean f1 = face1.isSelected();
+        boolean f2 = face2.isSelected();
+        boolean f3 = face3.isSelected();
+        boolean f4 = face4.isSelected();
+        boolean f5 = face5.isSelected();
+        boolean f6 = face6.isSelected();
+        new ShowCube(f1, f2, f3, f4, f5, f6, cf1, cf2, cf3, cf4, cf5, cf6).executeCoordinatesDraw();
+    }//GEN-LAST:event_gerarEixosBtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -346,8 +392,10 @@ public class GLApp extends javax.swing.JFrame {
     private javax.swing.JCheckBox face4;
     private javax.swing.JCheckBox face5;
     private javax.swing.JCheckBox face6;
+    private javax.swing.JButton gerarColisaoCubosBt;
     private javax.swing.JButton gerarCuboBt;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton gerarEixosBt;
+    private javax.swing.JButton gerarParCubosBt;
     private javax.swing.JColorChooser jColorChooser1;
     // End of variables declaration//GEN-END:variables
 }

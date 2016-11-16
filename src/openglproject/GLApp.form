@@ -27,26 +27,32 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jColorChooser1" min="-2" pref="451" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="gerarCuboBt" min="-2" max="-2" attributes="0"/>
-                  <Component id="face1" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="face2" min="-2" max="-2" attributes="0"/>
-                  <Component id="face3" min="-2" max="-2" attributes="0"/>
-                  <Component id="face4" min="-2" max="-2" attributes="0"/>
-                  <Component id="face5" min="-2" max="-2" attributes="0"/>
-                  <Component id="face6" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="aplicarCor2Bt" min="-2" max="-2" attributes="0"/>
-                      <Component id="aplicarCor3Bt" min="-2" max="-2" attributes="0"/>
-                      <Component id="aplicarCor4Bt" min="-2" max="-2" attributes="0"/>
-                      <Component id="aplicarCor5Bt" min="-2" max="-2" attributes="0"/>
-                      <Component id="aplicarCor6Bt" min="-2" max="-2" attributes="0"/>
-                      <Component id="aplicarCor1Bt" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="gerarCuboBt" min="-2" max="-2" attributes="0"/>
+                          <Component id="face1" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="face2" min="-2" max="-2" attributes="0"/>
+                          <Component id="face3" min="-2" max="-2" attributes="0"/>
+                          <Component id="face4" min="-2" max="-2" attributes="0"/>
+                          <Component id="face5" min="-2" max="-2" attributes="0"/>
+                          <Component id="face6" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="aplicarCor2Bt" min="-2" max="-2" attributes="0"/>
+                              <Component id="aplicarCor3Bt" min="-2" max="-2" attributes="0"/>
+                              <Component id="aplicarCor4Bt" min="-2" max="-2" attributes="0"/>
+                              <Component id="aplicarCor5Bt" min="-2" max="-2" attributes="0"/>
+                              <Component id="aplicarCor6Bt" min="-2" max="-2" attributes="0"/>
+                              <Component id="aplicarCor1Bt" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="gerarParCubosBt" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                  <Component id="gerarColisaoCubosBt" min="-2" max="-2" attributes="0"/>
+                  <Component id="gerarEixosBt" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="61" max="32767" attributes="0"/>
           </Group>
@@ -92,9 +98,13 @@
                           <Component id="face6" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="gerarEixosBt" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="gerarColisaoCubosBt" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="gerarCuboBt" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="gerarParCubosBt" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -114,12 +124,12 @@
     </Component>
     <Component class="javax.swing.JColorChooser" name="jColorChooser1">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="gerarParCubosBt">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gerar Par de Cubos"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gerarParCubosBtActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="aplicarCor1Bt">
@@ -202,6 +212,22 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Face 6"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="gerarColisaoCubosBt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gerar Colisao de Cubos"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gerarColisaoCubosBtActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="gerarEixosBt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gerar Eixos"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gerarEixosBtActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
